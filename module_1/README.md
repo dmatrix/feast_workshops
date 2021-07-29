@@ -21,14 +21,15 @@ maps to each Feast high-level concept and object.
 ### Setup and Installation
 
 #### Step 1: 
-    ``` conda create --name feast_workshop ```
+``` conda create --name feast_workshop ```
 #### Step 2:
-    ``` conda activate feast_workshop ```
+``` conda activate feast_workshop ```
 #### Step 3: 
-    ``` pip install feast ```
+``` pip install feast ```
 #### Step 4:
-    ``` feast version ```
-    Feast SDK Version: "feast 0.11.0"
+``` feast version ```
+
+Feast SDK Version: "feast 0.11.0"
 
 ### Defining and Declaring your Feast Objects
 
@@ -39,10 +40,10 @@ maps to each Feast high-level concept and object.
 * Read [Feast config](feature_repo/feature_store.yaml)
 
 ### Step 2: Register feature definitions and deploy your feature store
-    ``` feast apply ```
+``` feast apply ```
 ### Step 3: Generating training data
 The `feast apply` command builds a training dataset based on the time-series features defined in the 
 feature repository [Feature](feature_repo/features/feature_views.py)
 
-    ``` cd training && python training.py ```
+``` cd training && python training.py ```
 
