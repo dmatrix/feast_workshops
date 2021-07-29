@@ -39,7 +39,8 @@ In this module_1, we will cover:
      * Feast Repos
      * Data Source
      * Entity
-     * Features
+     * Features and Features Views
+     * Feature Service
      * Offline & Online Stores
    * Learn Feast APIs
      * Declare and define Feast Object using Feast Declarative APIs
@@ -60,5 +61,11 @@ Familiarity with **git** is important so that you can get all the material easil
 workshop as well as continue to work in your free time, after the session is over.
 
 ``` git clone git@github.com:dmatrix/feast_workshops.git```
+
 ``` git clone https://github.com/dmatrix/feast_workshops.git```
 
+### Documentation Resources
+This tutorial will refer to documentation:
+ * [Feast Docs](https://rtd.feast.dev/en/latest/)
+ * [Feast Python SDK](https://rtd.feast.dev/en/latest/)
+ * [Feast CLI](https://docs.feast.dev/reference/feast-cli-commands)
