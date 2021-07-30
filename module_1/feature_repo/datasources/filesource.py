@@ -10,10 +10,8 @@ import feast as fst
 driver_hourly_stats = fst.FileSource(
     # change this to your location
     path="/Users/jules/git-repos/feast_workshops/module_1/feature_repo/data/driver_stats.parquet",
-
     # the timestamp when this event occurred
     event_timestamp_column="datetime",
-
     # timestamp when it was registered
     created_timestamp_column="created",
 )
