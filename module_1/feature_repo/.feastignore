@@ -1,2 +1,2 @@
-training/**/*.py
+queries/*.py
 .idea/**/
