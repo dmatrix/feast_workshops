@@ -24,8 +24,15 @@ In this series of lectures and workshops, where we have divided them into module
 
 The workshop is divided into three modules:
  * [Module 1](module_1/README.md)
- * [Module_2](module_2/README.md)
- * [Module_3](module_3/README.md)
+ * [Module 2](module_2/README.md)
+ * [Module 3](module_3/README.md)
+
+### Who Should Take This Course
+
+A data scientist or data engineer want to learn and understand: 
+ * how Feature Store builds a bridge between your feature data and machine learning models
+ * how to serve consistent features for both training and low-latency inference 
+ * how to build feature engineering pipelines for building features
 
 ### Skill Level
 Beginner to Intermediate
