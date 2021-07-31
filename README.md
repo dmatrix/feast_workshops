@@ -1,6 +1,5 @@
 
 ![](images/feast_logo.png)
-#Feast Workshops 
 
 ### What is Feast?
 
