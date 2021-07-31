@@ -5,6 +5,22 @@ This module will focus on understanding key concepts and Feast objects. In this 
  * Materialize feature values from the offline store into the online store.
  * Read the latest features from the online store for inference.
 
+In particular, we'll cover the following:
+ * Introduction to Feature Stores
+   * what are they, what problems they solve, and why you need them
+   * What is Feast and why
+   * Key concepts in Feast
+     * Projects
+     * Feast Repos
+     * Data Source
+     * Entity
+     * Features and Features Views
+     * Feature Service
+     * Offline & Online Stores
+   * Learn Feast APIs
+     * Declare and define Feast Object using Feast Declarative APIs
+     * Use an IDE, Google Colab or Jupyter Notebook demonstrating how to use Feast APIs
+
 
 ![](images/feast_concepts.png)
 
@@ -40,24 +56,26 @@ Feast SDK Version: "feast 0.11.0"
 * Read [Feast config](feature_repo/feature_store.yaml)
 
 ### Step 2: Register feature definitions and deploy your feature store
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
 ``` feast apply ```
 ### Step 3: Generating training data
 The `feast apply` command builds a training dataset based on the time-series features defined in the 
 feature repository [Feature](feature_repo/features/feature_views.py)
 
-``` cd training && python training.py ```
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
+
+``` python queries/train.py```
 
 ### Step 4: Load features into your online store
 The `feast materialize` command loads the latest feature values from your feature views into your online store.
 That is, it populates these features from the offline store into offline store, our local SQLite database,
 defined in `feature_store.yaml.` 
 
-```cd module_1/feature_store```
+Informing to populate online store starting at this time going back in time. 
 
-Set environment variable CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%S"), informing to populate online 
-store starting at this time going back in time. 
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
 
-```feast materialize-incremental $CURRENT_TIME```
+```feast materialize-incremental $(date -u +"%Y-%m-%dT%H:%M:%S")```
 
 Materializing 1 feature views to 2021-07-29 10:45:23-07:00 into the SQLite online store.
 
@@ -65,6 +83,6 @@ driver_hourly_stats from 2021-07-28 17:45:38-07:00 to 2021-07-29 10:45:23-07:00:
 
 ### Step 5: Fetching feature vectors for inference
 
-``` cd module_1/feature_store/training```
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
 
-``` python scoring.py```
+``` python queries/score.py```

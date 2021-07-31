@@ -22,28 +22,18 @@ In this series of lectures and workshops, where we have divided them into module
 * how feature stores are playing a transformational role with the rise of modern data platforms
 * get a hands-on experience with the popular open source feature store Feast
 
+The workshop is divided into three modules:
+ * [Module 1](module_1/README.md)
+ * [Module_2](module_2/README.md)
+ * [Module_3](module_3/README.md)
+
+### Skill Level
+Beginner to Intermediate
+
 ### Instructor
 
 - [Jules S. Damji](https://www.linkedin.com/in/dmatrix/) 
 - [@2twitme](https://twitter.com/2twitme)
-
-### About Workshop Module 1
-
-In this module_1, we will cover:
- * Introduction to Feature Stores
-   * what are they, what problems they solve, and why you need them
-   * What is Feast and why
-   * Key concepts in Feast
-     * Projects
-     * Feast Repos
-     * Data Source
-     * Entity
-     * Features and Features Views
-     * Feature Service
-     * Offline & Online Stores
-   * Learn Feast APIs
-     * Declare and define Feast Object using Feast Declarative APIs
-     * Use an IDE, Google Colab or Jupyter Notebook demonstrating how to uss Feast APIs
      
 ### Prerequisites
  * Knowledge of Python 3 and programming in general
