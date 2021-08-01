@@ -1,10 +1,10 @@
 import pandas as pd
+from pathlib import Path
 from datetime import datetime
 from feast import FeatureStore
 
-if __name__ == "__main__":
-    # change this to your location
-    FEAST_REPO = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
+
+def get_training_data(rpath:Path) -> dict:
     entity_df = pd.DataFrame.from_dict(
         {
             "driver_id": [1001, 1002, 1003, 1004],
@@ -17,7 +17,7 @@ if __name__ == "__main__":
         }
     )
 
-    store = FeatureStore(repo_path=FEAST_REPO)
+    store = FeatureStore(repo_path=rpath)
 
     training_df = store.get_historical_features(
         entity_df=entity_df,
@@ -28,6 +28,4 @@ if __name__ == "__main__":
         ],
     ).to_df()
 
-    pd.set_option('display.max_columns', None)
-    print(training_df.head())
-    print(f"Training data shape: {training_df.shape}")
+    return (training_df)

@@ -1,11 +1,9 @@
-from pprint import pprint
+from pathlib import Path
 from feast import FeatureStore
 
-
-if __name__ == "__main__":
+def get_feature_vector(rpath: Path) -> dict:
     # change this to your location
-    FEAST_REPO = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
-    store = FeatureStore(repo_path=FEAST_REPO)
+    store = FeatureStore(repo_path=rpath)
 
     feature_vector = store.get_online_features(
         feature_refs=[
@@ -16,4 +14,5 @@ if __name__ == "__main__":
         entity_rows=[{"driver_id": 1001}],
     ).to_dict()
 
-    pprint(feature_vector)
+    return (feature_vector)
+

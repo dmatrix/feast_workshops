@@ -1,2 +1,2 @@
-queries/*.py
+client/*.py
 .idea/**/
