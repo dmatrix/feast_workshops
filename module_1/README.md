@@ -64,8 +64,6 @@ feature repository [Feature](feature_repo/features/feature_views.py)
 
 ```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
 
-``` python queries/train.py```
-
 ### Step 4: Load features into your online store
 The `feast materialize` command loads the latest feature values from your feature views into your online store.
 That is, it populates these features from the offline store into offline store, our local SQLite database,
@@ -79,10 +77,11 @@ Informing to populate online store starting at this time going back in time.
 
 Materializing 1 feature views to 2021-07-29 10:45:23-07:00 into the SQLite online store.
 
-driver_hourly_stats from 2021-07-28 17:45:38-07:00 to 2021-07-29 10:45:23-07:00:
+driver_hourly_stats from 2021-07-28 17:45:38-07:00 to 2021-07-29 10:45:23-07:00
 
-### Step 5: Fetching feature vectors for inference
+Alternatively, you could do all the above steps in a single file using the SDK API
 
-```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
+#### Step 1: Use SDK
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo\queries```
 
-``` python queries/score.py```
+```python driver.py```
