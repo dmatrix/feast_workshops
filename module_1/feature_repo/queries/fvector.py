@@ -1,6 +1,7 @@
 from pathlib import Path
 from feast import FeatureStore
 
+
 def get_feature_vector(rpath: Path) -> dict:
     # change this to your location
     store = FeatureStore(repo_path=rpath)
