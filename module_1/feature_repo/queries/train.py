@@ -28,4 +28,11 @@ def get_training_data(rpath:Path) -> dict:
         ],
     ).to_df()
 
-    return (training_df)
+    return training_df
+
+
+if __name__ == '__main__':
+    tdf = get_training_data(Path("../"))
+    pd.set_option('display.max_columns', None)
+    print(tdf.head())
+    print(f"Training data shape: {tdf.shape}")

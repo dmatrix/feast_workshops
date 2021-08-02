@@ -1,4 +1,5 @@
 from pathlib import Path
+from pprint import pprint
 from feast import FeatureStore
 
 
@@ -15,5 +16,9 @@ def get_feature_vector(rpath: Path) -> dict:
         entity_rows=[{"driver_id": 1001}],
     ).to_dict()
 
-    return (feature_vector)
+    return feature_vector
 
+
+if __name__ == '__main__':
+    f_vector = get_feature_vector(Path("../"))
+    pprint(f_vector)
