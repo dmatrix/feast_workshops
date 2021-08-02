@@ -79,9 +79,18 @@ Materializing 1 feature views to 2021-07-29 10:45:23-07:00 into the SQLite onlin
 
 driver_hourly_stats from 2021-07-28 17:45:38-07:00 to 2021-07-29 10:45:23-07:00
 
+<hr style="border:3px solid gray"> </hr>
+
 Alternatively, you could do all the above steps in a single file using the SDK API
 
-#### Step 1: Use SDK
+### Step 1: Use SDK or run from Jupyter notebook
 ```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo\queries```
 
-```python driver.py```
+```python driver.py``` or ```jupyter lab driver.ipynb```
+
+### Step 2: Try some Feast CLI commands
+
+ 1. `feast --help`
+ 2. `feast feature-views list`
+ 3. `feast entities list`
+ 4. `feast registry-dump`
