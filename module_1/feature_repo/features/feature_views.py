@@ -1,12 +1,10 @@
 # This is an example feature definition file
-from feast import FeatureView, Feature, ValueType
-from datasources.filesource import driver_hourly_stats
 
 from google.protobuf.duration_pb2 import Duration
+from datasource.file_source import driver_hourly_stats
 
-# Our parquet files contain sample data that includes a driver_id column, timestamps and
-# three feature column. Here we define a Feature View that will allow us to serve this
-# data to our model online.
+from feast import Feature, FeatureView, ValueType
+
 driver_hourly_stats_view = FeatureView(
     name="driver_hourly_stats",
     entities=["driver_id"],

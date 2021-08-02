@@ -79,6 +79,12 @@ Materializing 1 feature views to 2021-07-29 10:45:23-07:00 into the SQLite onlin
 
 driver_hourly_stats from 2021-07-28 17:45:38-07:00 to 2021-07-29 10:45:23-07:00
 
+### Step 5: Fetch a feature vector from your online store
+
+``cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo/queries```
+
+```python fvector.py```
+
 <hr style="border:3px solid gray"> </hr>
 
 Alternatively, you could do all the above steps in a single file using the SDK API

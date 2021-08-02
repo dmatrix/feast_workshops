@@ -1,12 +1,11 @@
 # This is an example feature definition file
-
-from feast import Entity, ValueType
+from feast.data_source import FileSource
 
 # Read data from parquet files. Parquet is convenient for local development mode. For
 # production, you can use your favorite DWH, such as BigQuery. See Feast documentation
 # for more info.
-
-
-# Define an entity for the driver. You can think of entity as a primary key used to
-# fetch features.
-driver = Entity(name="driver_id", value_type=ValueType.INT64, description="driver id",)
+driver_hourly_stats = FileSource(
+    path="/Users/jules/git-repos/feature_repo/data/driver_stats.parquet",
+    event_timestamp_column="datetime",
+    created_timestamp_column="created",
+)
