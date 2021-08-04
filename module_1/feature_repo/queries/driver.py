@@ -31,7 +31,9 @@ if __name__ == "__main__":
     fs.materialize_incremental(end_date=datetime.utcnow() - timedelta(minutes=0))
 
     # get the feature vector for inferencing from the online store
-    feature_vector = get_feature_vector(repo_path, 1001)
-    pprint(feature_vector)
+    for driver in [1001, 1002, 1003]:
+        feature_vector = get_feature_vector(repo_path, driver)
+        print("--" * 5)
+        pprint(feature_vector)
 
 
