@@ -33,6 +33,6 @@ def get_training_data(rpath:Path) -> dict:
 
 if __name__ == '__main__':
     tdf = get_training_data(Path("../"))
-    pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_columns', 10)
     print(tdf.head())
     print(f"Training data shape: {tdf.shape}")

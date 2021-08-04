@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # get the training data
     training_df = get_training_data(repo_path)
-    pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_columns', 10)
     print(training_df.head())
     print(f"Training data shape: {training_df.shape}")
 
