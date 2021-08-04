@@ -26,7 +26,9 @@ if __name__ == '__main__':
     # Train model
     target = "trip_completed"
 
-    # Enable autologging for mlflow
+    # Enable autologging for mlflow and set the tracking uri with the local model registry
+    # SQLite db
+    mlflow.set_tracking_uri("sqlite:///mlruns.db")
     mlflow.sklearn.autolog()
     reg = LinearRegression()
     train_X = training_df[training_df.columns.drop(target).drop("event_timestamp")]

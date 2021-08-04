@@ -4,9 +4,9 @@ import pandas as pd
 
 
 class DriverRankingModel:
-    def __init__(self, repo_path, model_id):
+    def __init__(self, repo_path, model_uri):
         # Load model from mlflow mlruns or from model registry
-        self.model = mlflow.sklearn.load_model(f"runs:/{model_id}/model")
+        self.model = mlflow.sklearn.load_model(model_uri)
 
         # Set up feature store
         self.fs = feast.FeatureStore(repo_path=repo_path)
@@ -35,7 +35,9 @@ class DriverRankingModel:
 
 if __name__ == "__main__":
     drivers = [1001, 1002, 1003]
+    mlflow.set_tracking_uri("sqlite:///mlruns.db")
     REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
-    model = DriverRankingModel(REPO_PATH, "53f8700384084c39b5d95ee6a1388b14")
+    model_uri = "models:/sklearn_feast_integration/staging"
+    model = DriverRankingModel(REPO_PATH, model_uri)
     best_driver = model.predict(drivers)
     print(f" Best predicted driver for completed trips: {best_driver}")
