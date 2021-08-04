@@ -19,5 +19,5 @@ def get_feature_vector(rpath: Path, id) -> dict:
 
 
 if __name__ == '__main__':
-    f_vector = get_feature_vector(Path("../"), 1002)
+    f_vector = get_feature_vector(Path("../"), 1001)
     pprint(f_vector)

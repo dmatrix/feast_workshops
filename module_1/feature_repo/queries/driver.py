@@ -28,10 +28,10 @@ if __name__ == "__main__":
     print(f"Training data shape: {training_df.shape}")
 
     # Now materialize data into online store
-    fs.materialize_incremental(end_date=datetime.utcnow() - timedelta(minutes=5))
+    fs.materialize_incremental(end_date=datetime.utcnow() - timedelta(minutes=0))
 
     # get the feature vector for inferencing from the online store
-    feature_vector = get_feature_vector(repo_path, 1002)
+    feature_vector = get_feature_vector(repo_path, 1001)
     pprint(feature_vector)
 
 
