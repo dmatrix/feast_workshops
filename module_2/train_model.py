@@ -6,9 +6,9 @@ import mlflow
 
 
 class DriverRankingTrainModel:
-    def __init__(self, repo_path: str, params={}) -> None:
+    def __init__(self, repo_path: str, tuning_params={}) -> None:
         self._repo_path = repo_path
-        self._params = params
+        self._params = tuning_params
 
     def get_training_data(self) -> pd.DataFrame:
 
@@ -20,7 +20,7 @@ class DriverRankingTrainModel:
         # change this to your location
         fs = feast.FeatureStore(repo_path=self._repo_path)
 
-        # Retrieve training data from BigQuery
+        # Retrieve training data from local parquet FileSource
         training_df = fs.get_historical_features(
             entity_df=orders,
             feature_refs=[

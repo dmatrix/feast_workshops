@@ -9,6 +9,8 @@ In particular we'll focus on:
  * using MLflow UI to peruse our training runs and register models 
  * fetching feature vectors for a list of drivers and predicting which is the best ranked driver 
 
+![](images/feast_mlflow.png)
+
 ### Setup and Installation
 
 #### Step 1:
