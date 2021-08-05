@@ -1,13 +1,13 @@
 ### Module 2
-Built upon what you learned in Module 1, we will primarily see the key concepts and Feast objects put to use
-In particular we'll focus on:
+Built upon what you learned in Module 1, we will primarily see how the key Feast concepts and Feast are put to use.
+In particular, we'll focus on:
 
- * introducing quickly [MLflow](https://mlflow.org/docs/latest/concepts.html) concepts and how you can use to for machine learning models
- * fetching training data from our offline store, a local feature store offline store as a Parquet file 
- * training a simple linear regression model based offline store 
- * integrating with [MLflow](https://mlflow.org/) to track our [experimental runs](https://mlflow.org/docs/latest/tracking.html) and register the model with the [MLflow Model Registry](https://mlflow.org/docs/latest/model-registry.html)
- * using MLflow UI to peruse our training runs and register models 
- * fetching feature vectors for a list of drivers and predicting which is the best ranked driver 
+ * [MLflow](https://mlflow.org/docs/latest/concepts.html) concepts and how you can use to for machine learning models
+ * fetch training data from our offline store, a local feature store offline store as a Parquet file 
+ * train a simple linear regression model
+ * use [MLflow](https://mlflow.org/) to track our [experimental runs](https://mlflow.org/docs/latest/tracking.html) and register the model with the [MLflow Model Registry](https://mlflow.org/docs/latest/model-registry.html)
+ * navigate the MLflow UI, examine training runs, and register a model
+ * fetch feature vector for a list of drivers and predict which is the best ranked driver 
 
 ![](images/feast_mlflow.png)
 
