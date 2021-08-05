@@ -2,7 +2,7 @@
 Built upon what you learned in Module 1, we will primarily see how the key Feast concepts and Feast are put to use.
 In particular, we'll focus on:
 
- * [MLflow](https://mlflow.org/docs/latest/concepts.html) concepts and how you can use to for machine learning models
+ * introduce [MLflow](https://mlflow.org/docs/latest/concepts.html) concepts and how you can use it for machine learning models
  * fetch training data from our offline store, a local feature store offline store as a Parquet file 
  * train a simple linear regression model
  * use [MLflow](https://mlflow.org/) to track our [experimental runs](https://mlflow.org/docs/latest/tracking.html) and register the model with the [MLflow Model Registry](https://mlflow.org/docs/latest/model-registry.html)
@@ -40,7 +40,7 @@ Let's view the source to see what it does and how.
 
 Connect to local host at `http://127.0.0.1:5000`
 
- 1. Peruse the Experiments tab to see all your run in the MLflow run page
+ 1. Peruse the Experiments tab to see all your runs in the MLflow run page
  2. Click on a particular run and see all MLflow entities tracked:
     1. parameters, metrics, tags, descriptions, source, etc
     2. observe the artifacts created, models, signature, Feast features logged, etc
@@ -48,7 +48,7 @@ Connect to local host at `http://127.0.0.1:5000`
 
 #### Step 6: Make the prediction 
 
-Let's predict among the list of drivers, who's likely to complete the trip and best ranked
+Let's predict, among the list of drivers, who's likely to complete the trip and best ranked
 
 ```cd <your_cloned_git_dir>/feast_workshops//module_2```
 
