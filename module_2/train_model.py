@@ -55,7 +55,8 @@ class DriverRankingTrainModel:
 
 if __name__ == '__main__':
     REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
-    params_list = [{"alpha": 0.75, "l1_ratio": 0.25},
+    params_list = [{"alpha": 0.5, "l1_ratio": 0.15},
+                   {"alpha": 0.75, "l1_ratio": 0.25},
                    {"alpha": 1.0, "l1_ratio": 0.5}]
     # iterate over tuning parameters
     for params in params_list:
