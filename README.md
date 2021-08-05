@@ -29,7 +29,7 @@ The workshop is divided into three modules:
 
 ### Who Should Take This Course
 
-A data scientist or data engineer want to learn and understand: 
+A data scientist or data engineer who wants to learn and understand: 
  * how Feature Store builds a bridge between your feature data and machine learning models
  * how to serve consistent features for both training and low-latency inference 
  * how to build feature engineering pipelines for building features

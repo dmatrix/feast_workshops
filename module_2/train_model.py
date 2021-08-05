@@ -1,13 +1,14 @@
-import feast
-from joblib import dump
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from pprint import pprint
+from sklearn.linear_model import ElasticNet
+import feast
 import mlflow
 
 
 class DriverRankingTrainModel:
-    def __init__(self, repo_path: str) -> None:
+    def __init__(self, repo_path: str, params={}) -> None:
         self._repo_path = repo_path
+        self._params = params
 
     def get_training_data(self) -> pd.DataFrame:
 
@@ -37,7 +38,7 @@ class DriverRankingTrainModel:
         mlflow.sklearn.autolog()
 
         # create model
-        model = LinearRegression()
+        model = ElasticNet(**self._params)
         target = "trip_completed"
         training_df = self.get_training_data()
         train_X = training_df[training_df.columns.drop(target).drop("event_timestamp")]
@@ -54,8 +55,13 @@ class DriverRankingTrainModel:
 
 if __name__ == '__main__':
     REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
-    model_cls = DriverRankingTrainModel(REPO_PATH)
-    run_id = model_cls.train_model()
-    print (f"Model run id: {run_id}")
+    params_list = [{"alpha": 0.75, "l1_ratio": 0.25},
+                   {"alpha": 1.0, "l1_ratio": 0.5}]
+    # iterate over tuning parameters
+    for params in params_list:
+        model_cls = DriverRankingTrainModel(REPO_PATH, params)
+        run_id = model_cls.train_model()
+        pprint(f"ElasticNet params: {params}")
+        print(f"Model run id: {run_id}")
 
 

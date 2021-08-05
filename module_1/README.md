@@ -50,13 +50,14 @@ Feast SDK Version: "feast 0.11.0"
 ### Defining and Declaring your Feast Objects
 
 #### Step 1: Peruse the Python files and 
-* Read [Data Source](feature_repo/datasources/filesource.py)
+* Read [Data Source](feature_repo/datasources/file_source.py)
 * Read [Entity](feature_repo/entities/entity.py)
 * Read [Feature](feature_repo/features/feature_views.py)
 * Read [Feast config](feature_repo/feature_store.yaml)
 
 ### Step 2: Register feature definitions and deploy your feature store
 ```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
+
 ``` feast apply ```
 ### Step 3: Generating training data
 The `feast apply` command builds a training dataset based on the time-series features defined in the 
@@ -81,16 +82,16 @@ driver_hourly_stats from 2021-07-28 17:45:38-07:00 to 2021-07-29 10:45:23-07:00
 
 ### Step 5: Fetch a feature vector from your online store
 
-``cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo/queries```
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo/queries```
 
 ```python fvector.py```
 
 <hr style="border:3px solid gray"> </hr>
 
-Alternatively, you could do all the above steps in a single file using the SDK API
+Alternatively, you could do all the above steps in a single file using the Feast Python SDK API
 
 ### Step 1: Use SDK or run from Jupyter notebook
-```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo\queries```
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo/queries```
 
 ```python driver.py``` or ```jupyter lab driver.ipynb```
 
