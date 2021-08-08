@@ -1,5 +1,5 @@
 # This is an example feature definition file
-from feast.data_source import FileSource
+from feast import FileSource
 
 # Read data from parquet files. Parquet is convenient for local development mode. For
 # production, you can use your favorite DWH, such as BigQuery. See Feast documentation

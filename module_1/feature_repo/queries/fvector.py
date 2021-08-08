@@ -6,14 +6,14 @@ from feast import FeatureStore
 def get_feature_vector(rpath: Path, id) -> dict:
     store = FeatureStore(repo_path=rpath)
 
-    feature_vector=store.get_online_features(
-            feature_refs=[
-                "driver_hourly_stats:conv_rate",
-                "driver_hourly_stats:acc_rate",
-                "driver_hourly_stats:avg_daily_trips",
-            ],
-            entity_rows=[{"driver_id": id}],
-        ).to_dict()
+    # get the feature service associated with this store
+    feature_service = store.get_feature_service("driver_ranking_fv_svc")
+
+    # Retrieve training data from local parquet FileSource
+    feature_vector = store.get_online_features(
+        entity_rows=[{"driver_id": id}],
+        features=feature_service
+    ).to_df()
 
     return feature_vector
 
