@@ -13,6 +13,7 @@ from fservice.feature_svc import driver_fs
 from train import get_training_data
 from fvector import get_feature_vector
 
+# Change this location to yours
 FEAST_REPO = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo/"
 
 if __name__ == "__main__":

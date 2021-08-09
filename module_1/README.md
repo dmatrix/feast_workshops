@@ -105,3 +105,4 @@ Alternatively, you could do all the above steps in a single file using the Feast
  4. `feast entities list`
  5. `feast feature-services list`
  6. `feast registry-dump`
+ 7. `feast teardown` # Caution: this will remove the register.db and online_feature.db under feature_repo/data.
