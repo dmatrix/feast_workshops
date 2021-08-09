@@ -6,9 +6,10 @@ import mlflow
 
 
 class DriverRankingTrainModel:
-    def __init__(self, repo_path: str, tuning_params={}) -> None:
+    def __init__(self, repo_path: str, f_service_name: str, tuning_params={}) -> None:
         self._repo_path = repo_path
         self._params = tuning_params
+        self._feature_service_name = f_service_name
 
     def get_training_data(self) -> pd.DataFrame:
 
@@ -18,17 +19,15 @@ class DriverRankingTrainModel:
 
         # Connect to your local feature store
         # change this to your location
-        fs = feast.FeatureStore(repo_path=self._repo_path)
+        store = feast.FeatureStore(repo_path=self._repo_path)
+        feature_service = store.get_feature_service(self._feature_service_name )
 
         # Retrieve training data from local parquet FileSource
-        training_df = fs.get_historical_features(
+        training_df = store.get_historical_features(
             entity_df=orders,
-            feature_refs=[
-                "driver_hourly_stats:conv_rate",
-                "driver_hourly_stats:acc_rate",
-                "driver_hourly_stats:avg_daily_trips",
-            ],
+            features=feature_service
         ).to_df()
+        
         return training_df
 
     def train_model(self) -> str:
@@ -55,12 +54,13 @@ class DriverRankingTrainModel:
 
 if __name__ == '__main__':
     REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
+    FEATURE_SERVICE_NAME = "driver_ranking_fv_svc"
     params_list = [{"alpha": 0.5, "l1_ratio": 0.15},
                    {"alpha": 0.75, "l1_ratio": 0.25},
                    {"alpha": 1.0, "l1_ratio": 0.5}]
     # iterate over tuning parameters
     for params in params_list:
-        model_cls = DriverRankingTrainModel(REPO_PATH, params)
+        model_cls = DriverRankingTrainModel(REPO_PATH, FEATURE_SERVICE_NAME, params)
         run_id = model_cls.train_model()
         pprint(f"ElasticNet params: {params}")
         print(f"Model run id: {run_id}")
