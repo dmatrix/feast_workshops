@@ -26,6 +26,7 @@ The workshop is divided into three modules:
  * [Module 1](module_1/README.md)
  * [Module 2](module_2/README.md)
  * [Module 3](module_3/README.md)
+ * [Module 4](module_4/README.md)
 
 ### Who Should Take This Course
 
