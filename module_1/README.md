@@ -95,9 +95,13 @@ Alternatively, you could do all the above steps in a single file using the Feast
 
 ```python driver.py``` or ```jupyter lab driver.ipynb```
 
-### Step 2: Try some Feast CLI commands
+### ASSIGNMENT: Try some Feast CLI commands
+
+```cd <your_cloned_git_dir>/feast_workshops/module_1/feature_repo```
 
  1. `feast --help`
  2. `feast feature-views list`
- 3. `feast entities list`
- 4. `feast registry-dump`
+ 3. `feast feature-services describe <feature_service_name>`
+ 4. `feast entities list`
+ 5. `feast feature-services list`
+ 6. `feast registry-dump`
