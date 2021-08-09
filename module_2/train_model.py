@@ -17,8 +17,8 @@ class DriverRankingTrainModel:
         orders = pd.read_csv("./data/driver_orders.csv", sep="\t")
         orders["event_timestamp"] = pd.to_datetime(orders["event_timestamp"])
 
-        # Connect to your local feature store
-        # change this to your location
+        # Connect to your local feature store and getch the feature service
+        # serving this model
         store = feast.FeatureStore(repo_path=self._repo_path)
         feature_service = store.get_feature_service(self._feature_service_name )
 
@@ -31,7 +31,7 @@ class DriverRankingTrainModel:
         return training_df
 
     def train_model(self) -> str:
-        # Enable autologging for mlflow and set the tracking uri with the local model registry
+        # Enable auto logging for mlflow and set the tracking uri with the local model registry
         # SQLite db
         mlflow.set_tracking_uri("sqlite:///mlruns.db")
         mlflow.sklearn.autolog()
@@ -43,12 +43,14 @@ class DriverRankingTrainModel:
         train_X = training_df[training_df.columns.drop(target).drop("event_timestamp")]
         train_y = training_df.loc[:, target]
 
-        # log some parameters and Feast feature names
+        # log some Feast data:Feast data source, features, feature services
         with mlflow.start_run() as run:
             model.fit(train_X[sorted(train_X)], train_y)
-            mlflow.log_param("feast_data", "driver_hourly_stats")
-            mlflow.log_dict({"features": ["driver_hourly_stats:conv_rate", "driver_hourly_stats:acc_rate",
-                                          "driver_hourly_stats:avg_daily_trips"]}, "feast_data.json")
+            mlflow.log_dict({"features": ["driver_hourly_stats:conv_rate",
+                                          "driver_hourly_stats:acc_rate",
+                                          "driver_hourly_stats:avg_daily_trips"],
+                             "feast_feature_service": self._feature_service_name,
+                             "feast_feature_data": "driver_hourly_stats"}, "feast_data.json")
         return {run.info.run_id}
 
 
