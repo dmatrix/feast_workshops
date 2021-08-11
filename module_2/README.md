@@ -4,7 +4,8 @@ In particular, we'll focus on:
 
  * introduce [MLflow](https://mlflow.org/docs/latest/concepts.html) concepts and how you can use it for machine learning models
  * fetch training data from our offline store, a local feature store offline store as a Parquet file 
- * train a simple linear regression model
+ * train a simple linear regression, ElasticNet, model
+   * Use few tunning parameters and create three MLflow runs
  * use [MLflow](https://mlflow.org/) to track our [experimental runs](https://mlflow.org/docs/latest/tracking.html) and register the model with the [MLflow Model Registry](https://mlflow.org/docs/latest/model-registry.html)
  * navigate the MLflow UI, examine training runs, and register a model
  * fetch feature vector for a list of drivers and predict which is the best ranked driver 

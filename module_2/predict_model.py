@@ -4,13 +4,13 @@ import pandas as pd
 
 
 class DriverRankingPredictModel:
-    def __init__(self, repo_path:str, m_uri:str, feature_servcice_name:str) -> None:
+    def __init__(self, repo_path:str, m_uri:str, feature_service_name:str) -> None:
         # Load model from mlflow from the local model registry
         self._model = mlflow.sklearn.load_model(m_uri)
 
         # Set up feature store and feature service
         self._fs = feast.FeatureStore(repo_path=repo_path)
-        self._fsvc = self._fs.get_feature_service(feature_servcice_name)
+        self._fsvc = self._fs.get_feature_service(feature_service_name)
 
     def predict(self, driver_ids):
         # Read features from Feast
@@ -32,6 +32,7 @@ class DriverRankingPredictModel:
 
 if __name__ == "__main__":
     mlflow.set_tracking_uri("sqlite:///mlruns.db")
+    # Change to your location
     REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
     FEATURE_SERVICE_NAME = "driver_ranking_fv_svc"
     model_uri = "models:/sklearn_feast_integration/staging"
