@@ -20,22 +20,20 @@ if __name__ == "__main__":
     repo_path = Path(FEAST_REPO)
     fs = FeatureStore(repo_path=repo_path)
 
-    # Register the data source, entity, features and feature service in the FeatureView with the Feast Registry
+    # Step 1. Register the data source, entity, features and feature service in the FeatureView with the Feast Registry
     fs.apply([driver, driver_fs, driver_hourly_stats_view])
 
-    # get the training data
+    # Get the training data
     training_df = get_training_data(repo_path)
     pd.set_option('display.max_columns', 10)
     print(training_df.head())
     print(f"Training data shape: {training_df.shape}")
 
-    # Now materialize data into online store
+    # Step 2. Now materialize, load data into online store
     fs.materialize_incremental(end_date=datetime.utcnow())
 
-    # get the feature vector for inference from the online store
+    # Step 3: Get the feature vector for inference from the online store
     for driver in [1001, 1002, 1003]:
         feature_vector = get_feature_vector(repo_path, driver)
         print("--" * 5)
         pprint(feature_vector)
-
-
