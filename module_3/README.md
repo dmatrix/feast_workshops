@@ -1,4 +1,6 @@
-### Coming soon...A customer churn use case.
+### Coming soon...
+
+A customer churn use case.
 
 #### Workshop Objective:
 
