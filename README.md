@@ -32,12 +32,12 @@ The workshop is divided into three modules:
 | 4  | How to use Feast on demand transformations  | [Module 4](module_4/README.md)  |
 
 
-### Who Should Take This Course
+### Who Should Take This Workshop
 
 A data scientist or data engineer who wants to learn and understand: 
  * how Feature Store builds a bridge between your feature data and machine learning models
  * how to serve consistent features for both training and low-latency inference 
- * how to build feature engineering pipelines for building features
+ * how to build feature engineering pipelines to build features
 
 ### Skill Level
 Beginner to Intermediate
