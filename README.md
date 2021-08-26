@@ -22,13 +22,13 @@ In this series of lectures and workshops, where we have divided them into module
 * how feature stores are playing a transformational role with the rise of modern data platforms
 * get a hands-on experience with the popular open source feature store Feast
 
-The workshop is divided into three modules:
+The workshop, all done on your laptop, is divided into four modules:
 
 |  Time (mins) |  Description |  Module |
 |---|---|---|
-| 60  | Feast Concepts, Declarative APIs & Creating Features for offline/online access | [Module 1](module_1/README.md)  |
-| 45 | Quick intro to [MLflow](https://mlflow.org/), fetch training data from Feast & Integration with MLflow |[Module 2](module_2/README.md)  |
-| 45  | Starting from scratch: A customer churn use use Linear Regression ([XGBoost](https://xgboost.readthedocs.io/en/latest/))  | [Module 3](module_3/README.md)   |
+| 45-60  | Feast Concepts, Declarative & Consumption APIs, and Creating Features for offline/online access | [Module 1](module_1/README.md)  |
+| 45 | Quick intro to [MLflow](https://mlflow.org/) and Feast &  MLflow integration|[Module 2](module_2/README.md)  |
+| 45  | Starting from scratch: A customer churn use use Linear Regression [XGBoost](https://xgboost.readthedocs.io/en/latest/)  | [Module 3](module_3/README.md)   |
 | 45  | How to use Feast on demand transformations  | [Module 4](module_4/README.md)  |
 
 
