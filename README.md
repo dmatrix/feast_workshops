@@ -24,12 +24,12 @@ In this series of lectures and workshops, where we have divided them into module
 
 The workshop is divided into three modules:
 
-|  Hour |  Description |  Module |
+|  Time (mins) |  Description |  Module |
 |---|---|---|
-| 1  | Feast Concepts, Declarative APIs & Creating Features for offline/online access | [Module 1](module_1/README.md)  |
-| 2  | Quick intro to [MLflow](https://mlflow.org/), fetch training data from Feast & Integration with MLflow |[Module 2](module_2/README.md)  |
-| 3  | Starting from scratch: A customer churn use use Linear Regression ([XGBoost](https://xgboost.readthedocs.io/en/latest/))  | [Module 3](module_3/README.md)   |
-| 4  | How to use Feast on demand transformations  | [Module 4](module_4/README.md)  |
+| 60  | Feast Concepts, Declarative APIs & Creating Features for offline/online access | [Module 1](module_1/README.md)  |
+| 45 | Quick intro to [MLflow](https://mlflow.org/), fetch training data from Feast & Integration with MLflow |[Module 2](module_2/README.md)  |
+| 45  | Starting from scratch: A customer churn use use Linear Regression ([XGBoost](https://xgboost.readthedocs.io/en/latest/))  | [Module 3](module_3/README.md)   |
+| 45  | How to use Feast on demand transformations  | [Module 4](module_4/README.md)  |
 
 
 ### Who Should Take This Workshop
