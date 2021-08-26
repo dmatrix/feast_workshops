@@ -14,7 +14,7 @@ The toughest challenges for operationalizing ML is data: how to compute and sele
 validate serve, discover and share them.
 
 ### Goal and Objective
-In this series of lectures and workshops, where we have divided them into modules, you will learn:
+In this series of instructor led lectures and hands-on workshops, divided them into distinct modules, you will learn:
 
 * what key problems feature stores solve to operationalize ML
 * why features stores are a pivotal components in the model machine learning stack
@@ -28,7 +28,7 @@ The workshop, all done on your laptop, is divided into four modules:
 |---|---|---|
 | 45-60  | Feast Concepts, Declarative & Consumption APIs, and Creating Features for offline/online access | [Module 1](module_1/README.md)  |
 | 45 | Quick intro to [MLflow](https://mlflow.org/) and Feast &  MLflow integration|[Module 2](module_2/README.md)  |
-| 45  | Starting from scratch: A customer churn use use Linear Regression [XGBoost](https://xgboost.readthedocs.io/en/latest/)  | [Module 3](module_3/README.md)   |
+| 45  | Starting from scratch: A customer churn use case Linear Regression [XGBoost](https://xgboost.readthedocs.io/en/latest/)  | [Module 3](module_3/README.md)   |
 | 45  | How to use Feast on demand transformations  | [Module 4](module_4/README.md)  |
 
 
