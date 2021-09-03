@@ -1,4 +1,4 @@
-# This is an example feature definition file
+# This is an example of data source declaration file
 from feast import FileSource
 
 # Read data from parquet files. Parquet is convenient for local development mode. For production, you can 

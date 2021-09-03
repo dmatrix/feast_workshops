@@ -1,4 +1,4 @@
-# This is an example feature definition file
+# This is an example feature declaration file
 
 from google.protobuf.duration_pb2 import Duration
 from datasource.file_source import driver_hourly_stats
@@ -15,6 +15,6 @@ driver_hourly_stats_view = FeatureView(
         Feature(name="avg_daily_trips", dtype=ValueType.INT64),
     ],
     online=True,
-    input=driver_hourly_stats,
+    batch_source=driver_hourly_stats,
     tags={},
 )
