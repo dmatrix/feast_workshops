@@ -1,15 +1,12 @@
-### Coming soon...
-
-A customer churn use case.
+### A Credit Scoring Use Case for Loan Approval
 
 #### Workshop Objective:
 
- * load Telcom Usage data
- * Do some EDA and data cleaning
- * convert into a parquet file as a data sources for Feast
- * feast apply
- * feast materialize
- * train a logistic regression model
+ * Load data and peruse the data
+ * Declare and Define all Feast Primitives or First Class Objects (fco)
+ * Feast apply
+ * Feast materialize
+ * Train a logistic regression model using XGBoost
  * Use MLflow to register different runs
  * Elect the best model with precision metric
- * Get data from online store for prediction churn
+ * Get data from online store for credit score and loan approval 
