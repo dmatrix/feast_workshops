@@ -7,5 +7,5 @@ from feast import FileSource
 # Change path to your location in the feast repo for module 3
 # FOR THE WORKSHOP LAB, UNCOMMENT THE LINES IN THIS FILE, STARTING BELOW
 zipcode_batch_source = FileSource(path="/Users/jules/git-repos/feast_workshops/module_3/feature_repo/data/zipcode_table.parquet",
-                                 event_timestamp_column="datetime",
-                                 created_timestamp_column="created")
+                                 event_timestamp_column="event_timestamp",
+                                 created_timestamp_column="created_timestamp")

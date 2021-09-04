@@ -1,0 +1,5 @@
+queries/**/*.py
+queries/**/*.ipynb
+.idea/**/
+images/**/
+notebooks/**/

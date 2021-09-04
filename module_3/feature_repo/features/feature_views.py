@@ -1,7 +1,7 @@
 # This is an example feature declaration file
 
 from datetime import timedelta
-from feast import FeatureView,  ValueType
+from feast import Feature, FeatureView,  ValueType
 from datasource.file_source import zipcode_batch_source
 
 # FOR THE WORKSHOP LAB, UNCOMMENT THE LINES IN THIS FILE, STARTING BELOW
