@@ -1,4 +1,4 @@
-# This is an example of data source declaration file
+# This is an example of data sources declaration file
 from feast import FileSource
 
 # Read data from parquet files. Parquet is convenient for local development mode. For production, you can
@@ -6,6 +6,14 @@ from feast import FileSource
 
 # Change path to your location in the feast repo for module 3
 # FOR THE WORKSHOP LAB, UNCOMMENT THE LINES IN THIS FILE, STARTING BELOW
-zipcode_batch_source = FileSource(path="/Users/jules/git-repos/feast_workshops/module_3/feature_repo/data/zipcode_table.parquet",
-                                 event_timestamp_column="event_timestamp",
-                                 created_timestamp_column="created_timestamp")
+zipcode_batch_source = FileSource(
+    path="/Users/jules/git-repos/feast_workshops/module_3/feature_repo/data/zipcode_table.parquet",
+    event_timestamp_column="event_timestamp",
+    created_timestamp_column="created_timestamp"
+)
+
+credit_history_source=FileSource(
+    path="/Users/jules/git-repos/feast_workshops/module_3/feature_repo/data/credit_history.parquet",
+    event_timestamp_column="event_timestamp",
+    created_timestamp_column="created_timestamp"
+)
