@@ -48,12 +48,16 @@ if __name__ == "__main__":
 
     # Get loan data to enrich our historical zipcode features
     df = fetcher.get_loans_data()
+    print(" Loans Data")
+    print("--" * 5)
     print(df.head(3))
     print(df.columns)
     print("--" * 5)
 
     # Get training data: zipcode features + load data
     training_df = fetcher.get_training_data()
+    print(" Training Data")
+    print("--" * 5)
     print(training_df.head(3))
     print(training_df.columns)
     print("--" * 5)
