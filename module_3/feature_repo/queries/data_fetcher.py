@@ -4,6 +4,15 @@ from pprint import pprint
 
 from feast import FeatureStore
 
+zipcode_features = [
+        "zipcode_features:city",
+        "zipcode_features:state",
+        "zipcode_features:location_type",
+        "zipcode_features:tax_returns_filed",
+        "zipcode_features:population",
+        "zipcode_features:total_wages",
+    ]
+
 
 class DataFetcher(object):
     def __init__(self, fs, rpath: Path, fsvc: str) -> None:
@@ -17,7 +26,7 @@ class DataFetcher(object):
     def get_online_data(self, zcode: int) -> dict:
         return self._fs.get_online_features(
             entity_rows=[{"zipcode": zcode}],
-            features=self._fsvc
+            features=zipcode_features
         ).to_dict()
 
     # Retrieve training data from local parquet FileSource
@@ -27,7 +36,7 @@ class DataFetcher(object):
         fs_svc = self._fs.get_feature_service(self._fsvc)
         return self._fs.get_historical_features(
             entity_df=loans_data,
-            features=fs_svc
+            features=zipcode_features
         ).to_df()
 
 
