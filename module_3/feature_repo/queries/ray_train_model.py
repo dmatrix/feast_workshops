@@ -8,13 +8,14 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import precision_score
 
+from xgboost_ray import RayXGBClassifier
 import xgboost as xgb
 
 from feast import FeatureStore
 from data_fetcher import DataFetcher
 
 
-class CreditXGBClassifier:
+class CreditRayXGBClassifier:
 
     target = "loan_status"
 
@@ -67,7 +68,10 @@ class CreditXGBClassifier:
         self._trained_model = None
 
         # Create an instance of the classifier
-        self._model = xgb.XGBClassifier()
+        self._model = RayXGBClassifier(
+                    n_jobs=4,  # In XGBoost-Ray, n_jobs sets the number of actors
+                    random_state=42
+        )
 
     def _apply_ordinal_encoding(self, data):
         data[self.categorical_features] = self._encoder.fit_transform(
@@ -97,32 +101,14 @@ class CreditXGBClassifier:
 
         X_train, X_test, y_train, y_test = train_test_split(self._train_X, self._train_y, random_state=42)
 
-        # use DMatrix for xgboost
-        dtrain = xgb.DMatrix(data=X_train, label=y_train, enable_categorical=True)
-        dtest = xgb.DMatrix(data=X_test, label=y_test, enable_categorical=True)
-
-        # Set xgboost params
-
-        param = {
-            'max_depth': 10,  # the maximum depth of each tree
-            'eta': 0.3,  # the training step for each iteration
-            'objective': 'binary:logistic',  # error evaluation for binary class training
-            'eval_metric': ['logloss', 'error'],
-            'num_class': 1 # the number of classes that exist in this dataset
-        }
-
-        num_round = 75  # the number of training iterations
-
         # training and testing - numpy matrices
-        bst = xgb.train(param, dtrain, num_round)
-        preds = bst.predict(dtest)
+        bst = self._model.fit(X_train, y_train)
+
+        pred_ray = bst.predict(X_test)
+        print(pred_ray)
 
         # save the trained model
         self._trained_model = bst
-
-        # extracting most confident predictions
-        best_preds = np.asarray([np.argmax(line) for line in preds])
-        print(f"Numpy array precision: {precision_score(y_test, best_preds, zero_division=1)}")
 
     def predict(self, request):
         # Get Zipcode features from Feast
@@ -159,11 +145,7 @@ if __name__ == '__main__':
     REPO_PATH = Path("/Users/jules/git-repos/feast_workshops/module_3/feature_repo")
     store = FeatureStore(repo_path=REPO_PATH)
     fetcher = DataFetcher(store, REPO_PATH)
-    xgboost_cls = CreditXGBClassifier(store, fetcher)
-
-    #pd.set_option('display.max_columns', 50)
-    #print(xgboost_cls.training_df.head(3))
-    #print(type(xgboost_cls.model))
+    xgboost_cls = CreditRayXGBClassifier(store, fetcher)
 
     start = time.time()
     # Train the model
@@ -194,11 +176,12 @@ if __name__ == '__main__':
         }
     ]
 
+    """
     # Now do the predictions
     for loan_request in loan_requests:
         result = round(xgboost_cls.predict(loan_request))
         loan_status = "approved" if result == 1 else "rejected"
         print(f"Loan for {loan_request['zipcode'][0]} code {loan_status}: status_code={result}")
-
+    """
     elapsed = round(time.time() - start)
     print(f"Total time elapsed: {elapsed} sec")
