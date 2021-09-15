@@ -23,6 +23,7 @@ class CreditXGBClassifier:
         "city",
         "state",
         "location_type",
+        "dob_ssn",
     ]
 
     columns_to_drop = [
@@ -30,7 +31,6 @@ class CreditXGBClassifier:
         "created_timestamp",
         "loan_id",
         "loan_status",
-        "dob_ssn",
     ]
 
     zipcode_features = [
@@ -40,6 +40,15 @@ class CreditXGBClassifier:
         "zipcode_features:tax_returns_filed",
         "zipcode_features:population",
         "zipcode_features:total_wages",
+        "credit_history:credit_card_due",
+        "credit_history:mortgage_due",
+        "credit_history:student_loan_due",
+        "credit_history:vehicle_loan_due",
+        "credit_history:hard_pulls",
+        "credit_history:missed_payments_2y",
+        "credit_history:missed_payments_1y",
+        "credit_history:missed_payments_6m",
+        "credit_history:bankruptcies",
     ]
 
     def __init__(self, fs, data_fetcher):
@@ -94,13 +103,13 @@ class CreditXGBClassifier:
         # Set xgboost params
 
         param = {
-            'max_depth': 3,  # the maximum depth of each tree
+            'max_depth': 10,  # the maximum depth of each tree
             'eta': 0.3,  # the training step for each iteration
             'objective': 'binary:logistic',  # error evaluation for binary class training
-            'num_class': 1 # the number of classes that exist in this datset
+            'num_class': 1 # the number of classes that exist in this dataset
         }
 
-        num_round = 20  # the number of training iterations
+        num_round = 50  # the number of training iterations
 
         # training and testing - numpy matrices
         bst = xgb.train(param, dtrain, num_round)
@@ -137,9 +146,10 @@ class CreditXGBClassifier:
 
     def _get_online_zipcode_features(self, request):
         zipcode = request["zipcode"][0]
+        dob_ssn = request["dob_ssn"][0]
 
         return self._fs.get_online_features(
-            entity_rows=[{"zipcode": zipcode}], features=self.zipcode_features
+            entity_rows=[{"zipcode": zipcode, "dob_ssn": dob_ssn}], features=self.zipcode_features
         ).to_dict()
 
 
@@ -154,17 +164,19 @@ if __name__ == '__main__':
 
     xgboost_cls.train()
 
-    loan_request = {
+    loan_requests = [{
         "zipcode": [76104],
-        "person_age": [133],
+        "person_age": [22],
         "person_income": [59000],
         "person_home_ownership": ["RENT"],
         "person_emp_length": [123.0],
         "loan_intent": ["PERSONAL"],
         "loan_amnt": [35000],
         "loan_int_rate": [16.02],
-    }
+        "dob_ssn": ["19530219_5179"]
+    }]
 
-    result = xgboost_cls.predict(loan_request)
-    print(f"Loan approved: {result}")
+    for loan_request in loan_requests:
+        result = round(xgboost_cls.predict(loan_request))
+        print(f"Loan approved: {result}")
 

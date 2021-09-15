@@ -53,6 +53,7 @@ if __name__ == "__main__":
     fetcher = DataFetcher(store, REPO_PATH)
 
     # Get loan data to enrich our historical zipcode features
+    pd.set_option('display.max_columns', 50)
     df = fetcher.get_loans_data()
     print(" Loans Data")
     print("--" * 5)
