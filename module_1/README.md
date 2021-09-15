@@ -42,7 +42,7 @@ maps to each Feast high-level concept and object.
 #### Step 2:
 ``` conda activate feast_workshop ```
 #### Step 3: 
-``` pip install feast ```
+``` pip install -r requirements.txt ```
 #### Step 4:
 ``` feast version ```
 

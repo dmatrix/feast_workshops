@@ -15,19 +15,16 @@ In particular, we'll focus on:
 ### Setup and Installation
 
 #### Step 1:
-Activate the conda environment used in Module 1
+Activate the conda environment used in Module 1. This should have all the packages
+installed in module 1.
 
 ``` conda activate feast_workshop ```
-#### Step 3: 
-Install the latest MLflow
-
-``` pip install mlflow ```
-#### Step 4:
+#### Step 2:
 ``` mlfow --version ```
 
 mlflow, version 1.18.0
 
-#### Step 5: Train the model
+#### Step 3: Train the model
 
 Let's view the source to see what it does and how.
 
@@ -35,7 +32,7 @@ Let's view the source to see what it does and how.
 
 ``` python train_model.py```
 
-#### Step 6: Launch MLflow UI 
+#### Step 4: Launch MLflow UI 
 
 ```mlflow ui --backend-store-uri sqlite:///mlruns.db```
 
@@ -47,7 +44,7 @@ Connect to local host at `http://127.0.0.1:5000`
     2. observe the artifacts created, models, signature, Feast features logged, etc
  3. Register and create the registered model with a name: `sklearn_feast_model`
 
-#### Step 6: Make the prediction 
+#### Step 5: Make the prediction 
 
 Let's predict, among the list of drivers, who's likely to complete the trip and best ranked
 
