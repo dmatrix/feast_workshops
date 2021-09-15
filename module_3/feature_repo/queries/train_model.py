@@ -158,9 +158,9 @@ if __name__ == '__main__':
     store = FeatureStore(repo_path=REPO_PATH)
     fetcher = DataFetcher(store, REPO_PATH)
     xgboost_cls = CreditXGBClassifier(store, fetcher)
-    pd.set_option('display.max_columns', 50)
-    print(xgboost_cls.training_df.head(3))
-    print(type(xgboost_cls.model))
+    #pd.set_option('display.max_columns', 50)
+    #print(xgboost_cls.training_df.head(3))
+    #print(type(xgboost_cls.model))
 
     xgboost_cls.train()
 
@@ -191,5 +191,5 @@ if __name__ == '__main__':
 
     for loan_request in loan_requests:
         result = round(xgboost_cls.predict(loan_request))
-        loan_status = "approved" if result == 1 else "reject"
-        print(f"Loan for {loan_request['zipcode'][0]} code {loan_status}: {result}")
+        loan_status = "approved" if result == 1 else "rejected"
+        print(f"Loan for {loan_request['zipcode'][0]} code {loan_status}: status_code={result}")
