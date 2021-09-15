@@ -24,5 +24,22 @@ installed in module 1.
 #### Step 2:
 ``` ray --version ```
 
-### Step 3: 
+### Step 3: Create the Feast Feature Store 
+```cd cd <your_cloned_git_dir>/feast_workshops/module_3/queries```
 
+```python create_feature_store.py```
+
+### Step 4: Train the XGBoost program on a single core or process
+
+```python train_model.py```
+
+### Step 5: Train the XGBoost on Ray's distributed training using multiple cores or processes
+
+```python ray_train_model.py```
+
+
+Alternatively, you could do all the above steps inside a Jupyter Notebook
+
+```cd <your_cloned_git_dir>/feast_workshops/module_3/labs```
+
+```jupyter lab``

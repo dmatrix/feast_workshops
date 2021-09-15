@@ -1,13 +1,11 @@
 import pandas as pd
 import time
-import timeit
 import numpy as np
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import precision_score
-
 import xgboost as xgb
 
 from feast import FeatureStore
