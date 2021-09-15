@@ -37,6 +37,7 @@ installed in module 1.
 
 ```python ray_train_model.py```
 
+<hr style="border:3px solid gray"> </hr>
 
 Alternatively, you could do all the above steps inside a Jupyter Notebook
 
