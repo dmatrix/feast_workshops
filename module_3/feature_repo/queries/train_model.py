@@ -164,19 +164,32 @@ if __name__ == '__main__':
 
     xgboost_cls.train()
 
-    loan_requests = [{
-        "zipcode": [76104],
-        "person_age": [22],
-        "person_income": [59000],
-        "person_home_ownership": ["RENT"],
-        "person_emp_length": [123.0],
-        "loan_intent": ["PERSONAL"],
-        "loan_amnt": [35000],
-        "loan_int_rate": [16.02],
-        "dob_ssn": ["19530219_5179"]
-    }]
+    loan_requests = [
+        {
+            "zipcode": [76104],
+            "person_age": [22],
+            "person_income": [59000],
+            "person_home_ownership": ["RENT"],
+            "person_emp_length": [123.0],
+            "loan_intent": ["PERSONAL"],
+            "loan_amnt": [35000],
+            "loan_int_rate": [16.02],
+            "dob_ssn": ["19530219_5179"]
+        },
+        {
+            "zipcode": [69033],
+            "person_age": [66],
+            "person_income": [42000],
+            "person_home_ownership": ["RENT"],
+            "person_emp_length": [2.0],
+            "loan_intent": ["MEDICAL"],
+            "loan_amnt": [6475],
+            "loan_int_rate": [9.99],
+            "dob_ssn": ["19960703_3449"]
+        }
+    ]
 
     for loan_request in loan_requests:
         result = round(xgboost_cls.predict(loan_request))
-        print(f"Loan approved: {result}")
-
+        loan_status = "approved" if result == 1 else "reject"
+        print(f"Loan for {loan_request['zipcode'][0]} code {loan_status}: {result}")
