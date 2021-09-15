@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import precision_score
 
-from xgboost_ray import RayXGBClassifier
+from xgboost_ray import RayXGBClassifier, RayParams
 import xgboost as xgb
 
 from feast import FeatureStore
@@ -126,8 +126,7 @@ class CreditRayXGBClassifier:
         self._apply_ordinal_encoding(features_df)
 
         # Make prediction
-        data = xgb.DMatrix(features_df)
-        features_df["prediction"] = self.trained_model.predict(data)
+        features_df["prediction"] = self.trained_model.predict(features_df, ray_params=RayParams(num_actors=1))
 
         # return result of credit scoring
         return features_df["prediction"].iloc[0]
@@ -176,12 +175,11 @@ if __name__ == '__main__':
         }
     ]
 
-    """
     # Now do the predictions
     for loan_request in loan_requests:
         result = round(xgboost_cls.predict(loan_request))
         loan_status = "approved" if result == 1 else "rejected"
         print(f"Loan for {loan_request['zipcode'][0]} code {loan_status}: status_code={result}")
-    """
+
     elapsed = round(time.time() - start)
     print(f"Total time elapsed: {elapsed} sec")
