@@ -39,7 +39,7 @@ class CreditRayXGBClassifier(CreditXGBClassifier):
         bst = self._model.fit(X_train, y_train)
 
         pred_ray = bst.predict(X_test)
-        print(pred_ray)
+        print(f" predictions: {pred_ray}")
 
         # save the trained model
         self._trained_model = bst

@@ -83,7 +83,7 @@ class CreditXGBClassifier:
         # training and testing - numpy matrices
         bst = xgb.train(param, dtrain, num_round)
         preds = bst.predict(dtest)
-
+        print(f" predictions: {preds}")
         # save the trained model
         self._trained_model = bst
 
