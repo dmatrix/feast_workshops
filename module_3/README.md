@@ -16,12 +16,12 @@
 
 ### Setup and Installation
 
-#### Step 1:
+### Step 1:
 Activate the conda environment used in Module 1. This should have all the packages
 installed in module 1.
 
 ``` conda activate feast_workshop ```
-#### Step 2:
+### Step 2:
 ``` ray --version ```
 
 ### Step 3: Create the Feast Feature Store 
