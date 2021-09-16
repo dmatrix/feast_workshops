@@ -46,3 +46,5 @@ Alternatively, you could do all the above steps inside a Jupyter Notebook
 ```cd <your_cloned_git_dir>/feast_workshops/module_3/labs```
 
 ```jupyter lab```
+
+And run labs 01 - 04 in that order
