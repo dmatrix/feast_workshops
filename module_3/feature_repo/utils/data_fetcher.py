@@ -75,4 +75,3 @@ if __name__ == "__main__":
         print(f"Fetching feature vector for zipcode and dob_ssn:{zipcode}, {dob_ssn}")
         data = fetcher.get_online_data(zipcode, dob_ssn)
         pprint(data)
-

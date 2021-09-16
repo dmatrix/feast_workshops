@@ -9,7 +9,10 @@ from sklearn.metrics import precision_score
 import xgboost as xgb
 
 from feast import FeatureStore
-from data_fetcher import DataFetcher
+import sys
+sys.path.insert(0, "../")
+
+from utils.data_fetcher import DataFetcher
 
 
 class CreditXGBClassifier:
