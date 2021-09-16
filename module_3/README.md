@@ -4,12 +4,11 @@
 
  * Load data and peruse the data
  * Declare and Define all Feast Primitives or First Class Objects (fco)
- * Feast apply
- * Feast materialize
- * Train model using XGBoost 
-   * First using a single core
-   * Use Ray to do distributed training on four cores
- * Get data from online store for credit score and loan approval 
+ * Create a Feature Store using Feast APIs
+ * Train model using XGBoost fetching training data from Feast offline store
+   * First using a single core on local host
+   * Second, use Ray to do distribute training on four cores on localhost
+ * Get data from Feast online store for credit score and loan approval 
 
 ![](images/feast_ray_xgboost.png)
 
