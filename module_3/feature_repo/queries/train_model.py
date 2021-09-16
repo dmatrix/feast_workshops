@@ -13,57 +13,23 @@ import sys
 sys.path.insert(0, "../")
 
 from utils.data_fetcher import DataFetcher
+from utils.feature_data import FeatureData
 
 
 class CreditXGBClassifier:
 
-    target = "loan_status"
-
-    categorical_features = [
-        "person_home_ownership",
-        "loan_intent",
-        "city",
-        "state",
-        "location_type",
-        "dob_ssn",
-    ]
-
-    columns_to_drop = [
-        "event_timestamp",
-        "created_timestamp",
-        "loan_id",
-        "loan_status",
-    ]
-
-    zipcode_features = [
-        "zipcode_features:city",
-        "zipcode_features:state",
-        "zipcode_features:location_type",
-        "zipcode_features:tax_returns_filed",
-        "zipcode_features:population",
-        "zipcode_features:total_wages",
-        "credit_history:credit_card_due",
-        "credit_history:mortgage_due",
-        "credit_history:student_loan_due",
-        "credit_history:vehicle_loan_due",
-        "credit_history:hard_pulls",
-        "credit_history:missed_payments_2y",
-        "credit_history:missed_payments_1y",
-        "credit_history:missed_payments_6m",
-        "credit_history:bankruptcies",
-    ]
-
     def __init__(self, fs, data_fetcher):
         self._fs = fs
         self._data_fetcher = data_fetcher
-
         self._encoder = OrdinalEncoder()
+        self._data_cls = FeatureData()
 
-        # Drop the unneeded columns
         self._training_df = data_fetcher.get_training_data()
         self._apply_ordinal_encoding(self._training_df)
-        self._train_y = self._training_df[self.target]
-        self._train_X = self._training_df.drop(columns=self.columns_to_drop)
+        self._train_y = self._training_df[self._data_cls.target]
+
+        # Drop the unneeded columns
+        self._train_X = self._training_df.drop(columns=self._data_cls.columns_to_drop)
         self._train_X = self._train_X.reindex(sorted(self._train_X.columns), axis=1)
         self._trained_model = None
 
@@ -71,8 +37,8 @@ class CreditXGBClassifier:
         self._model = xgb.XGBClassifier()
 
     def _apply_ordinal_encoding(self, data):
-        data[self.categorical_features] = self._encoder.fit_transform(
-            data[self.categorical_features])
+        data[self._data_cls.categorical_features] = self._encoder.fit_transform(
+            data[self._data_cls.categorical_features])
 
     @property
     def training_df(self) -> pd.DataFrame:
@@ -152,7 +118,7 @@ class CreditXGBClassifier:
         dob_ssn = request["dob_ssn"][0]
 
         return self._fs.get_online_features(
-            entity_rows=[{"zipcode": zipcode, "dob_ssn": dob_ssn}], features=self.zipcode_features
+            entity_rows=[{"zipcode": zipcode, "dob_ssn": dob_ssn}], features=self._data_cls.zipcode_features
         ).to_dict()
 
 

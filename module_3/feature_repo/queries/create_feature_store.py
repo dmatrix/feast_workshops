@@ -10,8 +10,7 @@ from feast import FeatureStore
 from entities.entity import zipcode, dob_ssn
 from features.feature_views import zipcode_features, credit_history
 from feature_service.feature_svc import zipcode_features_svc
-from data_fetcher import DataFetcher
-
+from utils.data_fetcher import DataFetcher
 
 # Change this location to yours
 FEAST_REPO = "/Users/jules/git-repos/feast_workshops/module_3/feature_repo/"
