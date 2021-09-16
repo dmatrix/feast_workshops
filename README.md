@@ -29,7 +29,7 @@ The workshop, all done on your laptop, is divided into four modules:
 | 45-60  | Feast Concepts, Declarative & Consumption APIs, and Creating Features for offline/online access | [Module 1](module_1/README.md)  |
 | 45 | Quick intro to [MLflow](https://mlflow.org/) and Feast &  MLflow integration|[Module 2](module_2/README.md)  |
 | 45  | A credit scoring & loan application use case with [XGBoost](https://xgboost.readthedocs.io/en/latest/) and [Ray](https://docs.ray.io/en/master/) for Distributed Training | [Module 3](module_3/README.md)   |
-| 45  | How to use Feast on demand transformations (WIP)  | [Module 4](module_4/README.md)  |
+| 45  | How to use Feast for on-demand transformations (WIP)  | [Module 4](module_4/README.md)  |
 
 
 ### Who Should Take This Workshop
