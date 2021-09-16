@@ -37,9 +37,12 @@ installed in module 1.
 
 ```python ray_train_model.py```
 
+![](images/ray_xgboost.png)
+
 <hr style="border:3px solid gray"> </hr>
 
 Alternatively, you could do all the above steps inside a Jupyter Notebook
+
 
 ```cd <your_cloned_git_dir>/feast_workshops/module_3/labs```
 
