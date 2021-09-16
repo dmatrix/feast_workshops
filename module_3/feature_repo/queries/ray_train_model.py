@@ -18,54 +18,18 @@ sys.path.insert(0, "../")
 
 from utils.data_fetcher import DataFetcher
 from utils.feature_data import FeatureData
+from queries.train_model import CreditXGBClassifier
 
 
-class CreditRayXGBClassifier:
+class CreditRayXGBClassifier(CreditXGBClassifier):
 
     def __init__(self, fs, data_fetcher):
-        self._fs = fs
-        self._data_fetcher = data_fetcher
-        self._encoder = OrdinalEncoder()
-        self._data_cls = FeatureData()
-
-        self._training_df = data_fetcher.get_training_data()
-        self._apply_ordinal_encoding(self._training_df)
-        self._train_y = self._training_df[self._data_cls.target]
-
-        # Drop the unneeded columns
-        self._train_X = self._training_df.drop(columns=self._data_cls.columns_to_drop)
-        self._train_X = self._train_X.reindex(sorted(self._train_X.columns), axis=1)
-        self._trained_model = None
-
+        super(CreditRayXGBClassifier, self).__init__(fs, data_fetcher)
         # Create an instance of the classifier
         self._model = RayXGBClassifier(
                     n_jobs=4,  # In XGBoost-Ray, n_jobs sets the number of actors
                     random_state=42
         )
-
-    def _apply_ordinal_encoding(self, data):
-        data[self._data_cls.categorical_features] = self._encoder.fit_transform(
-            data[self._data_cls.categorical_features])
-
-    @property
-    def training_df(self) -> pd.DataFrame:
-        return self._training_df
-
-    @property
-    def model(self):
-        return self._model
-
-    @property
-    def trained_model(self):
-        return self._trained_model
-
-    @property
-    def train_y(self) ->pd.DataFrame:
-        return self._train_y
-
-    @property
-    def train_X(self) -> pd.DataFrame:
-        return self._train_X
 
     def train(self) -> None:
 
@@ -100,14 +64,6 @@ class CreditRayXGBClassifier:
 
         # return result of credit scoring
         return features_df["prediction"].iloc[0]
-
-    def _get_online_zipcode_features(self, request):
-        zipcode = request["zipcode"][0]
-        dob_ssn = request["dob_ssn"][0]
-
-        return self._fs.get_online_features(
-            entity_rows=[{"zipcode": zipcode, "dob_ssn": dob_ssn}], features=self._data_cls.zipcode_features
-        ).to_dict()
 
 
 if __name__ == '__main__':
