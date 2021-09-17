@@ -12,6 +12,11 @@
 
 ![](images/feast_ray_xgboost.png)
 
+### Vidoes Worth Watching
+[Ray Tutorial](https://www.anyscale.com/events/2021/06/24/ray-core-tutorial)
+
+[An Introduction to Ray for Scaling ML Workloads](https://www.anyscale.com/events/2021/08/18/an-introduction-to-ray-for-scaling-machine-learning-ml-workloads)
+
 
 ### Setup and Installation
 
