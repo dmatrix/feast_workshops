@@ -17,6 +17,7 @@
 
 [An Introduction to Ray for Scaling ML Workloads](https://www.anyscale.com/events/2021/08/18/an-introduction-to-ray-for-scaling-machine-learning-ml-workloads)
 
+[Distributed XGBoost on Ray](https://docs.ray.io/en/master/xgboost-ray.html?highlight=rayxgbclassifier#distributed-xgboost-on-ray)
 
 ### Setup and Installation
 
