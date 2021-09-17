@@ -1,4 +1,6 @@
 # This is an example feature declaration file
+# You define all your features in a declarative way using Feast declarative APIs
+# See documentation: https://rtd.feast.dev/en/latest/#module-feast.feature_view
 
 from google.protobuf.duration_pb2 import Duration
 from datasource.file_source import driver_hourly_stats
