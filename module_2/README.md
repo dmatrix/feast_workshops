@@ -12,6 +12,10 @@ In particular, we'll focus on:
 
 ![](images/feast_mlflow.png)
 
+### Videos Worth Watching
+
+[MLflow Workshops](https://www.youtube.com/playlist?list=PLTPXxbhUt-YWjDg318nmSxRqTgZFWQ2ZC)
+
 ### Setup and Installation
 
 #### Step 1:
