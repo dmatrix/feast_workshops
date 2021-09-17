@@ -1,6 +1,8 @@
 feast
 ray['default']
 xgboost
+mlflow
 sklearn
 xgboost_ray
 jupyterlab
+pyinstrument >= 3.4
