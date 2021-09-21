@@ -50,16 +50,21 @@ maps to each Feast high-level concept and object.
 ``` conda activate feast_workshop ```
 #### Step 3: 
 ``` 
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 -m ipykernel install
+pip install -r requirements.txt
+python -m ipykernel install
 ```
 
 
 #### Step 4:
 ``` feast version ```
 
-Feast SDK Version: "feast 0.12.0"
+```ray --version```
+
+```mlflow --version```
+
+Feast SDK Version: "feast 0.12.1"
+Ray version 1.6
+MLflow version 1.20
 
 ### Defining and Declaring your Feast Objects
 

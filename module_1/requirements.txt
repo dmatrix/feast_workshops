@@ -1,5 +1,5 @@
 feast
-ray['default']
+ray > 1.5
 xgboost
 mlflow
 sklearn
