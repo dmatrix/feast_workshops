@@ -63,7 +63,9 @@ python -m ipykernel install
 ```mlflow --version```
 
 Feast SDK Version: "feast 0.12.1"
+
 Ray version 1.6
+
 MLflow version 1.20
 
 ### Defining and Declaring your Feast Objects
