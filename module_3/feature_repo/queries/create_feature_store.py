@@ -13,7 +13,7 @@ from feature_service.feature_svc import zipcode_features_svc
 from utils.data_fetcher import DataFetcher
 
 # Change this location to yours
-FEAST_REPO = "/Users/jules/git-repos/feast_workshops/module_3/feature_repo/"
+FEAST_REPO = "/Users/jsd/git-repos/feast_workshops/module_3/feature_repo/"
 
 if __name__ == "__main__":
     repo_path = Path(FEAST_REPO)

@@ -6,14 +6,16 @@ from feast import FileSource
 
 # Change path to your location in the feast repo for module 3
 # FOR THE WORKSHOP LAB, UNCOMMENT THE LINES IN THIS FILE, STARTING BELOW
+# [IMPORTANT] Change this  path to yours git repo
 zipcode_batch_source = FileSource(
-    path="/Users/jules/git-repos/feast_workshops/module_3/feature_repo/data/zipcode_table.parquet",
+    path="/Users/jsd/git-repos/feast_workshops/module_3/feature_repo/data/zipcode_table.parquet",
     event_timestamp_column="event_timestamp",
     created_timestamp_column="created_timestamp"
 )
 
+# [IMPORTANT] Change this  path to yours git repo
 credit_history_source=FileSource(
-    path="/Users/jules/git-repos/feast_workshops/module_3/feature_repo/data/credit_history.parquet",
+    path="/Users/jsd/git-repos/feast_workshops/module_3/feature_repo/data/credit_history.parquet",
     event_timestamp_column="event_timestamp",
     created_timestamp_column="created_timestamp"
 )

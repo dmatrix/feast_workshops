@@ -123,7 +123,8 @@ class CreditXGBClassifier:
 
 
 if __name__ == '__main__':
-    REPO_PATH = Path("/Users/jules/git-repos/feast_workshops/module_3/feature_repo")
+    # [IMPORTANT] Change this  path to yours git repo
+    REPO_PATH = Path("/Users/jsd/git-repos/feast_workshops/module_3/feature_repo")
     store = FeatureStore(repo_path=REPO_PATH)
     fetcher = DataFetcher(store, REPO_PATH)
     xgboost_cls = CreditXGBClassifier(store, fetcher)
