@@ -56,7 +56,7 @@ class DriverRankingTrainModel:
 
 if __name__ == '__main__':
     # Change to your location
-    REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
+    REPO_PATH = "/Users/jsd/git-repos/feast_workshops/module_1/feature_repo"
     FEATURE_SERVICE_NAME = "driver_ranking_fv_svc"
     params_list = [{"alpha": 0.5, "l1_ratio": 0.15},
                    {"alpha": 0.75, "l1_ratio": 0.25},

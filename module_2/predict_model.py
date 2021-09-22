@@ -36,7 +36,7 @@ class DriverRankingPredictModel:
 if __name__ == "__main__":
     mlflow.set_tracking_uri("sqlite:///mlruns.db")
     # Change to your location
-    REPO_PATH = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo"
+    REPO_PATH = "/Users/jsd/git-repos/feast_workshops/module_1/feature_repo"
     FEATURE_SERVICE_NAME = "driver_ranking_fv_svc"
     model_uri = "models:/sklearn_feast_integration/staging"
 
