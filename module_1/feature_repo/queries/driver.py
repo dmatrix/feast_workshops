@@ -14,7 +14,7 @@ from train import get_training_data
 from fvector import get_feature_vector
 
 # Change this location to yours
-FEAST_REPO = "/Users/jsd/git-repos/feast_workshops/module_1/feature_repo/"
+FEAST_REPO = "/Users/jules/git-repos/feast_workshops/module_1/feature_repo/"
 
 if __name__ == "__main__":
     repo_path = Path(FEAST_REPO)

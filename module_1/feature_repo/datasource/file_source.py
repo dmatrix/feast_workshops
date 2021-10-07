@@ -7,6 +7,6 @@ from feast import FileSource
 # See Feast documentation for more info.
 
 # change path to your location in the repo
-driver_hourly_stats = FileSource(path="/Users/jsd/git-repos/feast_workshops/module_1/feature_repo/data/driver_stats.parquet",
+driver_hourly_stats = FileSource(path="/Users/jules/git-repos/feast_workshops/module_1/feature_repo/data/driver_stats.parquet",
                                  event_timestamp_column="datetime",
                                  created_timestamp_column="created")

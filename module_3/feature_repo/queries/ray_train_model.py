@@ -1,15 +1,9 @@
 import pandas as pd
 import time
-import timeit
-import numpy as np
 from pathlib import Path
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.metrics import precision_score
 
 from xgboost_ray import RayXGBClassifier, RayParams
-import xgboost as xgb
 
 from feast import FeatureStore
 import sys
@@ -17,7 +11,6 @@ import sys
 sys.path.insert(0, "../")
 
 from utils.data_fetcher import DataFetcher
-from utils.feature_data import FeatureData
 from queries.train_model import CreditXGBClassifier
 
 
@@ -68,7 +61,7 @@ class CreditRayXGBClassifier(CreditXGBClassifier):
 
 if __name__ == '__main__':
     # [IMPORTANT] Change this  path to yours git repo
-    REPO_PATH = Path("/Users/jsd/git-repos/feast_workshops/module_3/feature_repo")
+    REPO_PATH = Path("/Users/jules/git-repos/feast_workshops/module_3/feature_repo")
     store = FeatureStore(repo_path=REPO_PATH)
     fetcher = DataFetcher(store, REPO_PATH)
     xgboost_cls = CreditRayXGBClassifier(store, fetcher)
